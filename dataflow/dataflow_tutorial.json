@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dataflow_tutorial",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -57,7 +57,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> citycsv",
+				"     ignoreNoFilesFound: false,",
+				"     moveFiles: [($folder_path),'success']) ~> citycsv",
 				"citycsv filter(country==\"France\") ~> countryFilter",
 				"citycsv, getCount join(citycsv@town == getCount@town,",
 				"     joinType:'inner',",
