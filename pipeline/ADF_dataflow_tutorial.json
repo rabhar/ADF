@@ -20,8 +20,22 @@
 						"type": "DataFlowReference",
 						"parameters": {
 							"folder_path": {
-								"value": "'@{pipeline().parameters.pipeline_df_path}'",
+								"value": "'@{pipeline().parameters.pipeline_input_path}'",
 								"type": "Expression"
+							}
+						},
+						"datasetParameters": {
+							"citycsv": {
+								"input_folder": {
+									"value": "@pipeline().parameters.pipeline_input_path",
+									"type": "Expression"
+								}
+							},
+							"sink1": {
+								"output_path": {
+									"value": "@pipeline().parameters.pipeline_output_path",
+									"type": "Expression"
+								}
 							}
 						}
 					},
@@ -34,7 +48,10 @@
 			}
 		],
 		"parameters": {
-			"pipeline_df_path": {
+			"pipeline_input_path": {
+				"type": "string"
+			},
+			"pipeline_output_path": {
 				"type": "string"
 			}
 		},
