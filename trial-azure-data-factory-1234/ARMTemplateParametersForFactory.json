@@ -43,24 +43,6 @@
 		},
 		"adlsg2trial_properties_typeProperties_url": {
 			"value": "https://adlsg2trial.dfs.core.windows.net/"
-		},
-		"adf_tutorial_trigger_properties_pipeline_parameters_input_folder_param": {
-			"value": "input"
-		},
-		"storage_trigger_properties_ADF_dataflow_tutorial_parameters_pipeline_input_path": {
-			"value": "output"
-		},
-		"storage_trigger_properties_ADF_dataflow_tutorial_parameters_pipeline_output_path": {
-			"value": "staging"
-		},
-		"storage_trigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/0fc809d6-112c-4e15-9a1a-500d19014d8b/resourceGroups/trial/providers/Microsoft.Storage/storageAccounts/adlsg2trial"
-		},
-		"dataflow_trigger_properties_pipeline_parameters_pipeline_input_path": {
-			"value": "output"
-		},
-		"dataflow_trigger_properties_pipeline_parameters_pipeline_output_path": {
-			"value": "staging"
 		}
 	}
 }
