@@ -16,9 +16,9 @@
 		"typeProperties": {
 			"frequency": "Minute",
 			"interval": 5,
-			"startTime": "2023-06-19T02:33:00Z",
+			"startTime": "2023-06-19T21:11:00Z",
 			"delay": "00:00:00",
-			"maxConcurrency": 50,
+			"maxConcurrency": 1,
 			"retryPolicy": {
 				"intervalInSeconds": 30
 			},
