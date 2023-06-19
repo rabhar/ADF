@@ -1,0 +1,93 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "adlsg2_csv",
+						"type": "DatasetReference"
+					},
+					"name": "citycsv"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "adlsg2_json_output",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "countryFilter"
+				},
+				{
+					"name": "joinwitgetcount"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "getCount"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"parameters{",
+				"     folder_path as string",
+				"}",
+				"source(output(",
+				"          lat as string,",
+				"          long as string,",
+				"          city_district as string,",
+				"          town as string,",
+				"          country as string,",
+				"          state as string,",
+				"          region as string,",
+				"          postcode as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> citycsv",
+				"citycsv filter(country==\"France\") ~> countryFilter",
+				"citycsv, getCount join(citycsv@town == getCount@town,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> joinwitgetcount",
+				"joinwitgetcount select(mapColumn(",
+				"          lat,",
+				"          long,",
+				"          city_district,",
+				"          town = citycsv@town,",
+				"          country,",
+				"          state,",
+				"          region,",
+				"          postcode",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"derivedColumn1 aggregate(groupBy(town),",
+				"     town_count = count(town)) ~> getCount",
+				"countryFilter derive(town_count = 0) ~> derivedColumn1",
+				"select1 sort(asc(town, true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
