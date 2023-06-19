@@ -1,0 +1,33 @@
+{
+	"name": "adlsg2_input_folder_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsg2trial",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folder_path": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder_path",
+					"type": "Expression"
+				},
+				"fileSystem": "adlsg2"
+			}
+		}
+	}
+}
