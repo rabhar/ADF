@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "trial-azure-data-factory-1234"
+		},
+		"ADLSgen2triallinked_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_watermark_connectionString": {
+			"value": ""
+		},
+		"adlsg2_AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"adlsg2_target_accountKey": {
+			"value": ""
+		},
+		"adlsg2trial_accountKey": {
+			"value": ""
+		},
+		"new_linked_service_connectionString": {
+			"value": ""
+		},
+		"ADLSgen2triallinked_properties_typeProperties_url": {
+			"value": "https://adlsg2trial.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://rabharstorageaccount4567.dfs.core.windows.net/"
+		},
+		"adlsg2_AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://rabharstorageaccount4567.dfs.core.windows.net/"
+		},
+		"adlsg2_target_properties_typeProperties_url": {
+			"value": "https://rabharstorageaccount4567.dfs.core.windows.net/"
+		},
+		"adlsg2trial_properties_typeProperties_url": {
+			"value": "https://adlsg2trial.dfs.core.windows.net/"
+		}
+	}
+}
