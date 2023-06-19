@@ -114,6 +114,10 @@
 													"folder_path": {
 														"value": "@pipeline().parameters.input_folder_param",
 														"type": "Expression"
+													},
+													"filename": {
+														"value": "@variables('filename')",
+														"type": "Expression"
 													}
 												}
 											}
