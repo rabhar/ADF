@@ -3,6 +3,16 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "ADF_dataflow_tutorial",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"pipeline_input_path": "output",
+				"pipeline_output_path": "staging"
+			}
+		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
