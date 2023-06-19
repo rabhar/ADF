@@ -75,6 +75,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/0fc809d6-112c-4e15-9a1a-500d19014d8b/resourceGroups/trial/providers/Microsoft.Storage/storageAccounts/adlsg2trial"
 		},
+		"dataflow_trigger_properties_pipeline_parameters_pipeline_input_path": {
+			"type": "string",
+			"defaultValue": "output"
+		},
+		"dataflow_trigger_properties_pipeline_parameters_pipeline_output_path": {
+			"type": "string",
+			"defaultValue": "staging"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -152,6 +160,12 @@
 					},
 					"storage_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('storage_trigger_properties_typeProperties_scope')]"
+					},
+					"dataflow_trigger_properties_pipeline_parameters_pipeline_input_path": {
+						"value": "[parameters('dataflow_trigger_properties_pipeline_parameters_pipeline_input_path')]"
+					},
+					"dataflow_trigger_properties_pipeline_parameters_pipeline_output_path": {
+						"value": "[parameters('dataflow_trigger_properties_pipeline_parameters_pipeline_output_path')]"
 					}
 				}
 			},

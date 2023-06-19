@@ -74,6 +74,14 @@
 		"storage_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/0fc809d6-112c-4e15-9a1a-500d19014d8b/resourceGroups/trial/providers/Microsoft.Storage/storageAccounts/adlsg2trial"
+		},
+		"dataflow_trigger_properties_pipeline_parameters_pipeline_input_path": {
+			"type": "string",
+			"defaultValue": "output"
+		},
+		"dataflow_trigger_properties_pipeline_parameters_pipeline_output_path": {
+			"type": "string",
+			"defaultValue": "staging"
 		}
 	},
 	"variables": {
@@ -800,7 +808,17 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "ADF_dataflow_tutorial",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"pipeline_input_path": "[parameters('dataflow_trigger_properties_pipeline_parameters_pipeline_input_path')]",
+						"pipeline_output_path": "[parameters('dataflow_trigger_properties_pipeline_parameters_pipeline_output_path')]"
+					}
+				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
 					"frequency": "Minute",
@@ -824,6 +842,7 @@
 				}
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/ADF_dataflow_tutorial')]",
 				"[concat(variables('factoryId'), '/triggers/adf_tutorial_trigger')]"
 			]
 		}
