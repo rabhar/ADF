@@ -1,0 +1,9 @@
+{
+	"name": "trial-azure-data-factory-1234",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6be89f4c-1647-4ff4-aa2b-a300564d2032",
+		"tenantId": "4cebbffa-91a1-4e08-927c-77dedadfb7c1"
+	}
+}

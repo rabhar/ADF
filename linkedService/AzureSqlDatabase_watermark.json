@@ -1,0 +1,12 @@
+{
+	"name": "AzureSqlDatabase_watermark",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=trial-server-123.database.windows.net;initial catalog=trial-sql-123;user id=Bharath",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDYwMEJGNjI0LUM3MzItNDExQy1CQUYzLUFCODlGRURBQzlFN181ZjNhN2ZmNi04ZjRlLTQ5YTktOTZmMi1hZWRhODJkMjliMTciDQp9"
+		}
+	}
+}
