@@ -16,10 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "input_folder",
+						"referenceName": "adlsg2",
 						"type": "DatasetReference",
 						"parameters": {
-							"input_folder_path": {
+							"folder_param": {
 								"value": "@pipeline().parameters.input_folder_param",
 								"type": "Expression"
 							}
@@ -30,10 +30,11 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
-						"type": "DelimitedTextReadSettings"
+						"type": "BinaryReadSettings"
 					}
 				}
 			},
@@ -88,27 +89,41 @@
 										"userProperties": [],
 										"typeProperties": {
 											"source": {
-												"type": "DelimitedTextSource",
+												"type": "BinarySource",
 												"storeSettings": {
 													"type": "AzureBlobFSReadSettings",
-													"recursive": true,
-													"enablePartitionDiscovery": false
+													"recursive": true
 												},
 												"formatSettings": {
-													"type": "DelimitedTextReadSettings"
+													"type": "BinaryReadSettings"
+												}
+											},
+											"sink": {
+												"type": "BinarySink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
 												}
 											},
 											"enableStaging": false
 										},
 										"inputs": [
 											{
-												"referenceName": "input_folder_file",
+												"referenceName": "adlsg2_input_folder_file",
 												"type": "DatasetReference",
 												"parameters": {
-													"input_folder_path": {
+													"folder_path": {
 														"value": "@pipeline().parameters.input_folder_param",
 														"type": "Expression"
 													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "adlsg2",
+												"type": "DatasetReference",
+												"parameters": {
+													"folder_param": "output"
 												}
 											}
 										]
