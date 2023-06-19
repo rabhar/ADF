@@ -2,7 +2,7 @@
 	"name": "adf_tutorial_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "ADF_tutorial",
