@@ -1,0 +1,27 @@
+{
+	"name": "adlsg2_json_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsg2trial",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"output_path": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().output_path",
+					"type": "Expression"
+				},
+				"fileSystem": "adlsg2"
+			}
+		},
+		"schema": {}
+	}
+}
